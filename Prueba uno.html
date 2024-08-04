@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botones Sí y No</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        button {
+            font-size: 16px;
+            padding: 10px 20px;
+            margin: 5px;
+        }
+        #mensaje {
+            margin-top: 20px;
+            font-size: 18px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h2>¿Estás bien?</h2>
+    <button id="si">Sí</button>
+    <button id="no">No</button>
+    <div id="mensaje"></div>
+
+    <script>
+        document.getElementById('si').addEventListener('click', () => {
+            document.getElementById('mensaje').textContent = "Está bien";
+        });
+
+        document.getElementById('no').addEventListener('click', () => {
+            const botonSi = document.getElementById('si');
+            const botonNo = document.getElementById('no');
+            const incrementarTamaño = 2;
+
+            botonSi.style.fontSize = `${parseFloat(getComputedStyle(botonSi).fontSize) + incrementarTamaño}px`;
+            botonNo.style.fontSize = `${parseFloat(getComputedStyle(botonNo).fontSize) - incrementarTamaño}px`;
+        });
+    </script>
+</body>
+</html>
